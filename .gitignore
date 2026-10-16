@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Virtual environment (never commit it - it is huge and machine-specific)
+venv/
+.venv/
+env/
+
+# Large generated data (re-create with: python main.py)
+data/raw/*.csv
+data/processed/*.csv
+data/external/*.csv
+!data/raw/injected_events.csv
+
+# Saved models (re-created by the pipeline)
+models/*.pkl
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Secrets
+.env
