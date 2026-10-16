@@ -1,0 +1,17 @@
+city,season,warming_per_decade,mk_p_value,trend
+Bengaluru,Monsoon,0.248,0.0,increasing
+Bengaluru,Post-Monsoon,0.286,0.0,increasing
+Bengaluru,Pre-Monsoon,0.254,0.0,increasing
+Bengaluru,Winter,0.216,0.0001,increasing
+Chennai,Monsoon,0.166,0.0011,increasing
+Chennai,Post-Monsoon,0.236,0.0001,increasing
+Chennai,Pre-Monsoon,0.243,0.0,increasing
+Chennai,Winter,0.191,0.0011,increasing
+Delhi,Monsoon,0.377,0.0,increasing
+Delhi,Post-Monsoon,0.066,0.3271,no significant trend
+Delhi,Pre-Monsoon,0.317,0.002,increasing
+Delhi,Winter,0.323,0.0016,increasing
+Mumbai,Monsoon,0.255,0.0,increasing
+Mumbai,Post-Monsoon,0.065,0.2805,no significant trend
+Mumbai,Pre-Monsoon,0.134,0.0267,increasing
+Mumbai,Winter,0.21,0.0,increasing

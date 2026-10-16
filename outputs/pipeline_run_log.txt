@@ -1,0 +1,79 @@
+12:42:06 | INFO    | pipeline               | ============================================================
+12:42:06 | INFO    | pipeline               | STEP: 1/7 Generate simulated climate data
+12:42:06 | INFO    | src.data_generator     | Simulating Delhi (12784 days)...
+12:42:06 | INFO    | src.data_generator     | Simulating Mumbai (12784 days)...
+12:42:06 | INFO    | src.data_generator     | Simulating Chennai (12784 days)...
+12:42:06 | INFO    | src.data_generator     | Simulating Bengaluru (12784 days)...
+12:42:06 | INFO    | src.data_generator     | Saved raw data -> data/raw/climate_data_raw.csv (51286 rows)
+12:42:06 | INFO    | src.data_generator     | Saved ground-truth events -> data/raw/injected_events.csv (140 events)
+12:42:06 | INFO    | pipeline               | DONE: 1/7 Generate simulated climate data (0.4s)
+12:42:06 | INFO    | pipeline               | ============================================================
+12:42:06 | INFO    | pipeline               | STEP: 2/7 Clean data + feature engineering
+12:42:06 | INFO    | src.data_loader        | Loaded 51286 rows x 7 columns from climate_data_raw.csv
+12:42:07 | INFO    | src.preprocessing      |   raw_rows                            51286
+12:42:07 | INFO    | src.preprocessing      |   raw_missing_cells                   5234
+12:42:07 | INFO    | src.preprocessing      |   unparseable_dates_dropped           0
+12:42:07 | INFO    | src.preprocessing      |   duplicate_rows_removed              150
+12:42:07 | INFO    | src.preprocessing      |   sentinel_values_replaced            268
+12:42:07 | INFO    | src.preprocessing      |   out_of_range_values_removed         0
+12:42:07 | INFO    | src.preprocessing      |   min_max_swaps                       0
+12:42:07 | INFO    | src.preprocessing      |   missing_cells_before_imputation     5489
+12:42:07 | INFO    | src.preprocessing      |   missing_cells_after_imputation      0
+12:42:07 | INFO    | src.preprocessing      |   clean_rows                          51136
+12:42:07 | INFO    | src.preprocessing      | Saved clean data -> data/processed/climate_data_clean.csv
+12:42:07 | INFO    | src.feature_engineering | Engineered 23 columns for 51136 rows
+12:42:08 | INFO    | src.feature_engineering | Saved features, monthly (1680 rows) and yearly (140 rows) tables
+12:42:08 | INFO    | pipeline               | DONE: 2/7 Clean data + feature engineering (2.0s)
+12:42:11 | INFO    | pipeline               | ============================================================
+12:42:11 | INFO    | pipeline               | STEP: 3/7 Exploratory data analysis
+12:42:12 | INFO    | src.eda                |   saved 01_missing_values.png
+12:42:13 | INFO    | src.eda                |   saved 02_distributions.png
+12:42:15 | INFO    | src.eda                |   saved 03_seasonal_cycle.png
+12:42:16 | INFO    | src.eda                |   saved 04_correlation_heatmap.png
+12:42:16 | INFO    | src.eda                |   saved 05_season_boxplot.png
+12:42:16 | INFO    | pipeline               | DONE: 3/7 Exploratory data analysis (4.9s)
+12:42:17 | INFO    | pipeline               | ============================================================
+12:42:17 | INFO    | pipeline               | STEP: 4/7 Climate trend analysis
+12:42:17 | INFO    | src.trend_analysis     |   Delhi      warming +0.32 °C/decade | MK p=0.0000 | increasing
+12:42:17 | INFO    | src.trend_analysis     |   Mumbai     warming +0.18 °C/decade | MK p=0.0000 | increasing
+12:42:17 | INFO    | src.trend_analysis     |   Chennai    warming +0.20 °C/decade | MK p=0.0000 | increasing
+12:42:17 | INFO    | src.trend_analysis     |   Bengaluru  warming +0.25 °C/decade | MK p=0.0000 | increasing
+12:42:25 | INFO    | src.trend_analysis     |   saved 06_temperature_trend.png
+12:42:25 | INFO    | src.trend_analysis     |   saved 07_rainfall_trend.png
+12:42:25 | INFO    | src.trend_analysis     |   saved 08_warming_stripes.png
+12:42:25 | INFO    | src.trend_analysis     |   saved 09_monthly_anomaly_heatmap.png
+12:42:25 | INFO    | src.trend_analysis     |   saved 10_stl_decomposition.png
+12:42:25 | INFO    | src.trend_analysis     |   saved 11_decadal_comparison.png
+12:42:25 | INFO    | src.trend_analysis     |   saved 12_extreme_days_trend.png
+12:42:25 | INFO    | src.trend_analysis     |   saved 13_seasonal_warming_rate.png
+12:42:25 | INFO    | pipeline               | DONE: 4/7 Climate trend analysis (7.8s)
+12:42:26 | INFO    | pipeline               | ============================================================
+12:42:26 | INFO    | pipeline               | STEP: 5/7 Anomaly detection
+12:42:33 | INFO    | src.anomaly_detection  |   heatwave      recall 98% (47/48 events) | day precision 84%
+12:42:33 | INFO    | src.anomaly_detection  |   cold_spell    recall 94% (30/32 events) | day precision 78%
+12:42:33 | INFO    | src.anomaly_detection  |   extreme_rain  recall 85% (51/60 events) | day precision 90%
+12:42:33 | INFO    | src.anomaly_detection  |   153 temperature anomaly events, 57 extreme-rain days, 36 anomalous months
+12:42:45 | INFO    | src.anomaly_detection  |   saved 14_temperature_anomalies.png
+12:42:45 | INFO    | src.anomaly_detection  |   saved 15_extreme_rainfall.png
+12:42:45 | INFO    | src.anomaly_detection  |   saved 16_isolation_forest_months.png
+12:42:45 | INFO    | pipeline               | DONE: 5/7 Anomaly detection (18.9s)
+12:42:47 | INFO    | pipeline               | ============================================================
+12:42:47 | INFO    | pipeline               | STEP: 6/7 Forecasting
+12:42:57 | INFO    | src.forecasting        |   Bengaluru  best model: Linear Trend + Seasonality  (RMSE 0.366 °C)
+12:43:01 | INFO    | src.forecasting        |   Chennai    best model: Linear Trend + Seasonality  (RMSE 0.461 °C)
+12:43:10 | INFO    | src.forecasting        |   Delhi      best model: SARIMA                      (RMSE 0.735 °C)
+12:43:14 | INFO    | src.forecasting        |   Mumbai     best model: Linear Trend + Seasonality  (RMSE 0.489 °C)
+12:44:43 | INFO    | src.forecasting        |   saved 17_forecast_backtest.png
+12:44:43 | INFO    | src.forecasting        |   saved 18_temperature_forecast.png
+12:44:43 | INFO    | src.forecasting        |   saved 19_model_comparison.png
+12:44:43 | INFO    | pipeline               | DONE: 6/7 Forecasting (115.7s)
+12:44:43 | INFO    | pipeline               | ============================================================
+12:44:43 | INFO    | pipeline               | STEP: 7/7 Insights report
+12:44:43 | INFO    | src.report_generator   |   saved climate_insights_report.md (21 insights)
+12:44:43 | INFO    | pipeline               | DONE: 7/7 Insights report (0.3s)
+12:44:43 | INFO    | pipeline               | ============================================================
+12:44:43 | INFO    | pipeline               | PIPELINE COMPLETE
+12:44:43 | INFO    | pipeline               |   Figures : outputs/figures
+12:44:43 | INFO    | pipeline               |   Tables  : outputs/tables
+12:44:43 | INFO    | pipeline               |   Report  : reports/climate_insights_report.md
+12:44:43 | INFO    | pipeline               |   Dashboard: streamlit run app/streamlit_app.py

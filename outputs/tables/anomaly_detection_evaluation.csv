@@ -1,0 +1,4 @@
+event_type,injected_events,events_detected,event_recall,flagged_days,day_precision
+heatwave,48,47,0.979,266,0.835
+cold_spell,32,30,0.938,159,0.78
+extreme_rain,60,51,0.85,57,0.895

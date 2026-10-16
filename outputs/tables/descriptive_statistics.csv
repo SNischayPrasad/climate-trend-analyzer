@@ -1,0 +1,5 @@
+city,temp_mean_mean,temp_mean_std,temp_mean_min,temp_mean_max,temp_max_mean,temp_max_std,temp_max_min,temp_max_max,temp_min_mean,temp_min_std,temp_min_min,temp_min_max,rainfall_mm_mean,rainfall_mm_std,rainfall_mm_min,rainfall_mm_max,humidity_pct_mean,humidity_pct_std,humidity_pct_min,humidity_pct_max
+Bengaluru,24.27,2.39,13.75,38.62,29.42,3.17,16.36,44.22,19.12,1.96,8.72,33.01,2.82,9.11,0.0,242.0,67.2,9.99,41.4,100.0
+Chennai,29.0,2.87,13.91,42.27,34.4,3.58,19.03,47.99,23.59,2.44,8.54,36.55,4.3,16.08,0.0,348.2,72.51,9.12,48.0,100.0
+Delhi,25.5,7.03,7.84,47.04,30.9,6.81,14.3,53.26,20.08,7.37,0.9,40.82,2.28,8.67,0.0,193.7,59.57,9.31,32.9,94.7
+Mumbai,27.68,2.34,16.91,39.89,32.99,2.33,22.19,45.96,22.36,2.84,10.47,35.67,6.33,22.93,0.0,549.3,75.7,9.31,51.5,100.0

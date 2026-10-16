@@ -1,0 +1,11 @@
+check,value
+raw_rows,51286
+raw_missing_cells,5234
+unparseable_dates_dropped,0
+duplicate_rows_removed,150
+sentinel_values_replaced,268
+out_of_range_values_removed,0
+min_max_swaps,0
+missing_cells_before_imputation,5489
+missing_cells_after_imputation,0
+clean_rows,51136

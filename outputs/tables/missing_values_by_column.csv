@@ -1,0 +1,6 @@
+column,missing,sentinel_errors,missing_pct
+temp_mean,1059,52,2.06
+temp_max,1023,55,1.99
+temp_min,1071,48,2.09
+rainfall_mm,999,51,1.95
+humidity_pct,1082,63,2.11
